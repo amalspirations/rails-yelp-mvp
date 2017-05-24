@@ -1,0 +1,76 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-xs-12">
+      <h2><%= @restaurant.name %></h2>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-xs-4">
+      <p>Category:</p>
+    </div>
+    <div class="col-xs-8">
+      <p><%= @restaurant.category %></p>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-4">
+      <p>Location:</p>
+    </div>
+    <div class="col-xs-8">
+      <p><%= @restaurant.address %></p>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-4">
+      <p>Phone number:</p>
+    </div>
+    <div class="col-xs-8">
+      <p><%= @restaurant.phone_number %></p>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-4">
+      <p>Average rating:</p>
+    </div>
+    <div class="col-xs-8">
+      <p><%= @restaurant.reviews.reduce(0){|sum, r| sum + r.rating} / @restaurant.reviews.length.to_f %></p>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <h3>(<%= @restaurant.reviews.length %> reviews)</h3>
+  </div>
+
+  <% @restaurant.reviews.each do |review| %>
+    <div class="row">
+
+      <div class="col-xs-3">
+        <p><strong><%= review.rating %></strong></p>
+      </div>
+      <div class="col-xs-8 col-xs-offset-1">
+        <p><em><<%= review.content %></em></p>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+
+<%= link_to "View all restaurants", restaurants_path, class: "btn btn-primary"%>
+<%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-danger"%>

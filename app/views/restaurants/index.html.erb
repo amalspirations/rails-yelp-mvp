@@ -1,0 +1,12 @@
+<% @restaurants.each do |restaurant| %>
+  <h3><%= restaurant.name %></h3>
+  <p><em><%= restaurant.category.capitalize %></em> - <%= restaurant.address %></p>
+  <p>Rating: <%= restaurant.reviews.reduce(0){|sum, r| sum + r.rating} / restaurant.reviews.length.to_f %> (<%= restaurant.reviews.length %> reviews)</p>
+  <%= link_to "Info", restaurant_path(restaurant)%>
+  <hr>
+<% end %>
+
+<%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-primary", style: "text-align: center"%>
+
+
+
