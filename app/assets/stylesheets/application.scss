@@ -13,3 +13,24 @@
 @import "layout/index";
 @import "components/index";
 @import "pages/index";
+
+li {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  align-content: space-around;
+}
+ul {
+  list-style: none;
+
+}
+.navbar {
+  width: 100vw;
+  height: 10vh;
+}
+img {
+  height: 5vh;
+}
+avatar {
+  border-radius: 50%;
+}
