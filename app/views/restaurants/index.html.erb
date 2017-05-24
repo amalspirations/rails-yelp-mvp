@@ -3,16 +3,15 @@
   <p><em><%= restaurant.category.capitalize %></em> - <%= restaurant.address %></p>
 
   <% average_rating = restaurant.reviews.reduce(0){|sum, r| sum + r.rating} / restaurant.reviews.length.to_f %>
-
-  <% 5.times do |i| %>
-    <% if average_rating <= i %>
+  <% 1.upto(5) do |i| %>
+    <% if i <= average_rating %>
       <i class="fa fa-star" aria-hidden="true"></i>
-    <% elsif average_rating < (i + 1) %>
+    <% elsif (i-1..i).include? average_rating  %>
       <i class="fa fa-star-half-o" aria-hidden="true"></i>
     <% else %>
       <i class="fa fa-star-o" aria-hidden="true"></i>
    <% end %>
- <% end %>
+  <% end %>
 
   <p>(<%= restaurant.reviews.length %> reviews)</p>
 

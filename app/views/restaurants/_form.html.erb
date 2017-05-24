@@ -1,8 +1,16 @@
-<%= simple_form_for @restaurant.name do |f| %>
+<%= simple_form_for @restaurant do |f| %>
+
+  <div id="error_explanation">
+      <ul><% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %></ul>
+  </div>
+
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :phone_number %>
   <%= f.input :category, collection: Restaurant::CATEGORIES %>
   <%= f.submit class: 'btn btn-success' %>
+
 <% end %>
 
