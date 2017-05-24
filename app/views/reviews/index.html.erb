@@ -1,2 +1,16 @@
-<h1>Reviews#index</h1>
-<p>Find me in app/views/reviews/index.html.erb</p>
+<h2>All reviews for <%= @restaurant %></h2>
+
+<div class="container">
+  <% @restaurant.reviews.each do |review| %>
+    <div class="row">
+
+      <div class="col-xs-3">
+        <p><strong><%= review.rating %></strong></p>
+      </div>
+      <div class="col-xs-8 col-xs-offset-1">
+        <p><em><<%= review.content %></em></p>
+      </div>
+    </div>
+
+  <% end %>
+</div>
