@@ -60,18 +60,28 @@
   <% @restaurant.reviews.each do |review| %>
     <div class="row">
 
-      <div class="col-xs-1 col-xs-offset-1">
-        <p><strong><%= review.rating %></strong></p>
+      <div class="col-xs-4">
+        <% 5.times do |i| %>
+          <% if i <= review.rating %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+         <% end %>
+       <% end %>
       </div>
-      <div class="col-xs-8 col-xs-offset-2">
+
+      <div class="col-xs-8">
         <p><em><%= review.content %></em></p>
       </div>
     </div>
   <% end %>
 
+
   <div class="row">
-    <%= link_to "Write a new review", new_restaurant_review_path(@restaurant), class: "btn btn-primary"%>
+    <h3>Leave a review</h3>
+    <%= render 'reviews/form' %>
   </div>
+
 
   <div class="row">
     <%= link_to "View all restaurants", restaurants_path, class: "btn btn-primary"%>
