@@ -1,7 +1,22 @@
 <% @restaurants.each do |restaurant| %>
   <h3><%= restaurant.name %></h3>
   <p><em><%= restaurant.category.capitalize %></em> - <%= restaurant.address %></p>
-  <p>Rating: <%= restaurant.reviews.reduce(0){|sum, r| sum + r.rating} / restaurant.reviews.length.to_f %> (<%= restaurant.reviews.length %> reviews)</p>
+
+  <% average_rating = restaurant.reviews.reduce(0){|sum, r| sum + r.rating} / restaurant.reviews.length.to_f %>
+
+  <% 5.times do |i| %>
+    <% if average_rating <= i %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% elsif average_rating < (i + 1) %>
+      <i class="fa fa-star-half-o" aria-hidden="true"></i>
+    <% else %>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+   <% end %>
+ <% end %>
+
+  <p>(<%= restaurant.reviews.length %> reviews)</p>
+
+
   <%= link_to "Details", restaurant_path(restaurant)%>
   <%= link_to "Reviews", restaurant_reviews_path(restaurant)%>
   <hr>
