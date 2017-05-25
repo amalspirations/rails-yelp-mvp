@@ -1,4 +1,4 @@
-<div class="navbar-container">
+<!-- <div class="navbar-container">
 
 <ul>
   <li><img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png" alt="Yelp logo"></li>
@@ -7,5 +7,62 @@
   <li class="navbar-btn"><%= link_to "New Restaurant", new_restaurant_path %></li>
   <li class="avatar"><img src="http://www.freeiconspng.com/uploads/person-icon-8.png" alt="Profile Pic"></li>
 </ul>
+
+</div> -->
+
+<!-- LE WAGON CODE -->
+
+<div class="navbar">
+  <!-- Logo -->
+  <a href="/" class="navbar-brand">
+    <img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/1ea40efd80f5/assets/img/brand_guidelines/yelp_fullcolor.png" />
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-right hidden-xs hidden-sm">
+
+    <!-- Search form -->
+    <form action="" class="navbar-search">
+      <input type="text" class="navbar-search-input" placeholder="Search restaurant">
+      <button type="submit" class="navbar-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+
+    <!-- Text link -->
+    <a href="" class="navbar-item navbar-link">About</a>
+
+    <!-- Categories -->
+    <div class="navbar-item">
+      <div class="dropdown">
+        <a href="" class="navbar-item navbar-link">Categories</a>
+        <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
+          <li><a href="#">All</a></li>
+          <li><a href="#">French</a></li>
+          <li><a href="#">Italian</a></li>
+          <li><a href="#">Belgian</a></li>
+          <li><a href="#">Japanese</a></li>
+          <li><a href="#">Chinese</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- Button (call-to-action) -->
+    <a class="navbar-item navbar-button btn"><%= link_to "Add new", new_restaurant_path %></a>
+
+    <!-- Profile picture and dropdown -->
+    <div class="navbar-item">
+      <div class="dropdown">
+        <img src="http://www.freeiconspng.com/uploads/person-icon-8.png" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 
 </div>
